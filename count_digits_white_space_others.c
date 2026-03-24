@@ -3,6 +3,7 @@
 /* count digits, white space and others */
 
 int main() 
+
 {
   int c ,i, nwhite, nother;
 
