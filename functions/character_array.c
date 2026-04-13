@@ -79,3 +79,45 @@ In future exercises i will try to go over all the illustrations on this book per
         while ((to[i] = from[i]) != '\0')
             ++i;
  }
+
+ /*The function getline() and copy are declared at the top of the file or program, which we assume are contained in one file.
+ main() and getline() communicate through a pair of argumentd and a returned value.In getline(), the argument is declared by the line.
+
+ int getline(char s[], int lim);
+ which specifies taht the first argument s iss an array and the second, lim, is an interger. 
+ The purpose of supplying the size of an array in a declaration is to set aside storage.
+ The length of an array s is not necessary in getline() since its size is set in main.
+ getline() uses return to send a value back to the  caller, just as the function intergerPower() did. 
+ This  line also declares that getline() returns an int; since int is the default return type, it culd be ommitted.
+ 
+ getline() puts the character '\0'(the null character, whose value is zero) at the end of the array it is creating,
+ to mark the end of the string of characters. This conversion is also used by the C language: when a string constat like
+
+ "hello"
+ appears in a C program, it is stored as an array of characterrs containing the characters  in the string and terminated with a '\0' to mark the end. 
+
+ "hello\n\0"
+
+ The %s format specification in a printf expects the corresponding argument to be a string represented in this form. copy also relies on the fact that
+ its input argument is terminated with a '\0', and copies this character into ouput.
+
+ It is worth mentioning in passing that even a program as smaall as this one represents some sticky design problem.
+ For what should main do when it encounters a line which is bigger than its limit? getline() works safely, in that  it stops collecting when the array is full,
+ even if no newline has been seen. By testing the length and the last character returned, main() can determine whether the line was too long, and the cope as it wishes.
+ In the interest of simplicity, we will ignore this problem for now, and assume that all input lines are shorter than MAXLINE.
+
+ There is no way  for a user of getline() to know in advance how long an input line might be, so getline() checks overflow.
+ On the other hand, the user of copy() already  knows (or can finf out) how big the string are, so copy() does not check for ovverflow.
+
+ **EXERCISE**
+1. Revise the main routine of the longest-line program so it will correctly print the length of arbitrary long input lines,
+and as much as possible of the text.
+
+2. Write a program to print all input lines that are longer than 80 characters.
+
+3. Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines.
+
+4. Write a function to reverse(s) that reverses the character string s. Use it to write a program that reverses its input a line at a time.
+
+
+*/
